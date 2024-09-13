@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Text-zu-Bild Generator</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex min-h-screen items-center justify-center bg-gray-100">
+    <div class="w-full max-w-md rounded bg-white p-4 shadow">
+      <h1 class="mb-4 text-center font-bold text-2xl">
+        Bild aus Text generieren
+      </h1>
+      <form hx-post="/generate" hx-target="#result" hx-swap="innerHTML">
+        <textarea
+          name="prompt"
+          rows="4"
+          class="mb-4 w-full rounded border border-gray-300 p-2"
+          placeholder="Gib deinen Text ein..."
+        ></textarea>
+        <button type="submit" class="w-full rounded bg-blue-500 p-2 text-white">
+          Generieren
+        </button>
+      </form>
+      <div id="result" class="mt-4"></div>
+    </div>
+  </body>
+</html>
